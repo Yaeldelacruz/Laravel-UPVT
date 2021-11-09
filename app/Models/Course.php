@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    protected $guarded = ['id', 'status'];
+    protected $guarded = ['id', 'status']; //No se puede cambiar ni el id ni es estatus por asignacion masiva
     protected $withCount = ['students'];
     
     use HasFactory;
@@ -32,6 +32,10 @@ class Course extends Model
     public function  getRouteKeyName()
     {
      return 'slug';   
+    }
+    //Relacion uno a uno
+    public function observation(){
+        return $this->hasOne('App\Models\Observation');
     }
 
     //Relacion uno a muchos

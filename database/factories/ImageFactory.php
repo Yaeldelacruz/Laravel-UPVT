@@ -22,7 +22,8 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            'url' => 'cursos/' . $this->faker->image('public/storage/cursos', 640, 480, null, false),
+            'url' => 'courses/' . $this->faker->image('public/storage/courses', 640, 480, null, false), /*Si se cambia esto, se tiene que 
+            cambiar en el database seeder de course por el nombre deseado*/
 
         ];
     }

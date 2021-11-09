@@ -20,9 +20,13 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         
-        Storage::deleteDirectory('cursos');
+        Storage::deleteDirectory('courses');
         
-        Storage::makeDirectory('cursos');
+        Storage::makeDirectory('courses');
+        
+        $this->call(PermissionSeeder::class);
+
+        $this->call(RoleSeeder::class);
         
         $this->call(UserSeeder::class);
 
@@ -33,5 +37,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PlatformSeeder::class);
 
         $this->call(CourseSeeder::class);
+
     }
 }
