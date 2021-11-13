@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('can:Leer cursos')->only('index');
@@ -146,16 +147,6 @@ class CourseController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Course $course)
-    {
-        //
-    }
     public function goals(Course $course){
         $this->authorize('dicatated', $course);
         return view('instructor.courses.goals', compact('course'));
@@ -175,5 +166,20 @@ class CourseController extends Controller
 
     public function observation(Course $course){
         return view('instructor.courses.observation', compact('course'));
+    }
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Course $course)
+    {
+        $course->delete();
+        $course = Course::find($course->id);
+        return redirect()->route('instructor.courses.index')->with('info', 'El curso se ha eliminado con exito!');
+
+        /*return redirect()->route('instructor.courses-index', $course)->with('info', 'El curso se ha eliminado con exito');*/
     }
 }

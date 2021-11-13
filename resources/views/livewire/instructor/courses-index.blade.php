@@ -1,11 +1,17 @@
 <div class="container py-8">
     <!-- This example requires Tailwind CSS v2.0+ -->
 
+    @if (session('info'))
+      <div class="alert bg-green-700 text-white" role="alert">
+        <strong>Hecho!</strong> {{session('info')}}
+      </div> 
+    @endif
+  
 <x-table-responsive>
 
-    <div class="px-6 py-4 flex">
+    <div class="px-6 py-4 flex"> 
         <input type="text" wire:keydown="limpiar_page" wire:model="search" class="rounded form-input w-full shadow-sm flex-1" placeholder="Ingresa el nombre de un curso">
-        <a class="btn btn-danger ml-2" href="{{route('instructor.courses.create')}}">Crear nuevo curso</a>
+        <a class="btn bg-green-700 text-white ml-2" href="{{route('instructor.courses.create')}}">Crear nuevo curso</a>
     </div>
 
     @if ($courses->count())
@@ -22,9 +28,11 @@
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Estado
             </th>
-            <th scope="col" class="relative px-6 py-3">
-              <span class="sr-only">Edit</span>
+
+            <th colspan="2" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Opciones de cursos
             </th>
+          
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
@@ -44,7 +52,12 @@
                         {{$course->title}}
                       </div>
                       <div class="text-sm text-gray-500">
-                        {{$course->category->name}}
+                        @isset($course->category->name)
+                          {{$course->category->name}}
+                        @else
+                        La categoria de este curso ha cambiado
+
+                        @endisset 
                       </div>
                     </div>
                   </div>
@@ -75,8 +88,15 @@
                             
                     @endswitch
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <a href="{{route('instructor.courses.edit', $course)}}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <a href="{{route('instructor.courses.edit', $course)}}" class="text-indigo-600 hover:text-indigo-900">Editar</a>                  
+                </td>
+                <td lass="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <form action="{{route('instructor.courses.destroy', $course)}}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="text-red-600 hover:text-red-900 text-sm">Eliminar</a>
+                  </form>
                 </td>
               </tr>
             @endforeach

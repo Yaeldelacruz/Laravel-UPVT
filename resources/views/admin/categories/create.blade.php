@@ -17,6 +17,7 @@
 
                 @error('name')
                     <span class="text-danger">{{$message}}</span>
+                    <br>
                 @enderror
 
                 {!! Form::submit('Crear categoria', ['class' => 'btn btn-primary']) !!}

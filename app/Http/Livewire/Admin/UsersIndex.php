@@ -24,6 +24,6 @@ class UsersIndex extends Component
         
     }
     public function limpiar_page(){
-        $this->resetPage();
+        $this->resetPage(); 
     }
 }

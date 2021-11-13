@@ -48,7 +48,7 @@
 
                         <p class="text-sm">Plataforma: {{$lesson1->platform->name}}</p>
                         <p class="text-sm">Enlace: <a class="text-blue-600" href="{{$lesson1->url}}" target="_blank">{{$lesson1->url}}</a></p>
-                        
+                         
                         <div class="my-2">
                             <button class="btn btn-primary text-sm" wire:click="edit({{$lesson1}})">Editar</button>
                             <button wire:click="destroy({{$lesson1}})" class="btn btn-danger text-sm">Eliminar</button>

@@ -30,7 +30,7 @@
         
     </div>
     <div class="px-6 py-4 ">
-        <a  href="{{route('courses.show', $course)}}" class="mt-4 btn btn-primary btn-block">
+        <a  href="{{route('courses.show', $course)}}" class="mt-4 btn bg-red-700 text-white btn-block">
             Entrar
         </a>
     </div>

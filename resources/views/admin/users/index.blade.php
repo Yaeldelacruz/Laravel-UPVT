@@ -7,7 +7,8 @@
 @stop
 
 @section('content')
-    <p>Bienvenido al panel administrador de la Universidad Politecnica del Valle de Toluca</p>
+    <p>Bienvenido al panel administrador de la Universidad Politecnica del Valle de Toluca donde podras
+        observar las listas de usuarios existentes</p>
     @livewire('admin.users-index')
 @stop
 

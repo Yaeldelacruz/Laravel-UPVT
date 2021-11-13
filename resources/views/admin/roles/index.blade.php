@@ -7,16 +7,16 @@
 @stop
 
 @section('content')
-    <p>Bienvenido al panel administrador de la Universidad Politecnica del Valle de Toluca.</p>
+    <p>Bienvenido al panel administrador de la Universidad Politecnica del Valle de Toluca donde podra ver los roles que existen.</p>
     @if (session('info'))
-        <div class="alert alert-primary" role="alert">
+        <div class="alert alert-success" role="alert">
             <strong>Hecho!</strong> {{session('info')}}
         </div>  
     @endif
-       
+        
     <div class="card">
         <div class="card-header">
-            <a href="{{route('admin.roles.create')}}">Crear Curso</a>
+            <a href="{{route('admin.roles.create')}}">Crear Rol</a>
         </div>
         <div class="card-body">
             <table class="table table-striped">

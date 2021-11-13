@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <p>Bienvenido al panel administrador.</p>
+    <p>Bienvenido al panel administrador para administrar los roles.</p>
     <div class="card">
         <div class="card-body">
             <!--Se crea un nuevo fomrulario con laravel collective para iniciar es form::open y cierre form::close con la ruta store

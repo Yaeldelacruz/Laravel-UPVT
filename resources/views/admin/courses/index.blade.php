@@ -7,7 +7,9 @@
 @stop
 
 @section('content')
-    <p>Bienvenido al panel administrador de la Universidad Politecnica del Valle de Toluca.</p>
+    <p>Bienvenido al panel administrador de la Universidad Politecnica del Valle de Toluca donde encontraras los archivos
+        pendientes para la aprobacion de cursos.
+    </p>
 
     @if (session('info'))
         <div class="alert alert-success">
