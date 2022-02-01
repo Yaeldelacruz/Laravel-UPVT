@@ -9,7 +9,7 @@
                     la plataforma de cursos en linea, la cual podras consultas, buscar contenido dependiendo tu rama para poder
                     ayudarte a resolver problemas y seguir aprendiendo.</p>
         
-                @livewire('search')
+                @livewire('search') 
             </div>
         </div>
     </section>

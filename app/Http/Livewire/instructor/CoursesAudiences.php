@@ -26,7 +26,7 @@ class CoursesAudiences extends Component
 
     public function store(){
         $this->validate([
-            'name' => 'required'
+            'name' => 'required|min:5|max:20'
         ]);
         $this->course->audiences()->create([
             'name' => $this->name

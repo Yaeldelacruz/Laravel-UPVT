@@ -51,10 +51,10 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|max:20|min:5',
             'slug' => 'required|unique:courses',
-            'subtitle' => 'required',
-            'description' => 'required',
+            'subtitle' => 'required|max:20|min:5',
+            'description' => 'required|min:10|max:200',
             'category_id' => 'required',
             'level_id' => 'required',
             'file' => 'image',
@@ -114,10 +114,10 @@ class CourseController extends Controller
         $this->authorize('dicatated', $course);
 
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|max:20|min:5',
             'slug' => 'required|unique:courses,slug,' . $course->id, //Se ignoran los cursos con ese id es decir los que esten en la DB
-            'subtitle' => 'required',
-            'description' => 'required',
+            'subtitle' => 'required|max:20|min:5',
+            'description' => 'required|min:10|max:200',
             'category_id' => 'required',
             'level_id' => 'required',
             'file' => 'image',
@@ -153,7 +153,6 @@ class CourseController extends Controller
     }
 
     public function status(Course $course){
-
         $course->status = 2; //Se actualiza en la BD
         $course->save();
 
@@ -168,18 +167,12 @@ class CourseController extends Controller
         return view('instructor.courses.observation', compact('course'));
     }
 
+
      /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
-    {
-        $course->delete();
-        $course = Course::find($course->id);
-        return redirect()->route('instructor.courses.index')->with('info', 'El curso se ha eliminado con exito!');
-
-        /*return redirect()->route('instructor.courses-index', $course)->with('info', 'El curso se ha eliminado con exito');*/
-    }
+   
 }

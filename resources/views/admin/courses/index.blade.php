@@ -5,18 +5,14 @@
 @section('content_header')
     <h1>Cursos pendientes de aprobacion</h1>
 @stop
-
 @section('content')
     <p>Bienvenido al panel administrador de la Universidad Politecnica del Valle de Toluca donde encontraras los archivos
-        pendientes para la aprobacion de cursos.
-    </p>
-
+        pendientes para la aprobacion de cursos. </p>
     @if (session('info'))
         <div class="alert alert-success">
             {{session('info')}}
         </div>
     @endif
-
     <div class="card">
         <div class="card-body">
             <table class="table table-striped">
@@ -55,5 +51,5 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>  </script>
 @stop

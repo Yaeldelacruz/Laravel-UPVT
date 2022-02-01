@@ -10,7 +10,7 @@ class LessonDescription extends Component
     public $lesson,$description, $name;
 
     protected $rules = [
-        'description.name' => 'required',
+        'description.name' => 'required|min:10|max:200',
     ];
 
     public function mount(Lesson $lesson){

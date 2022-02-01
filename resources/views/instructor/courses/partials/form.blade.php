@@ -50,7 +50,7 @@
         {!! Form::select('level_id', $levels, null, ['class' => 'form-input block w-full mt-1']) !!}
     </div>
 
-</div>
+</div> 
 
 <h1 class="text-2xl mt-8 mb-2 font-bold">Imagen del curso</h1>
 <div class="grid grid-cols-2 gap-4">

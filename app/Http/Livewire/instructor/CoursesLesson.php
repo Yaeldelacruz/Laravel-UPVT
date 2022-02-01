@@ -13,7 +13,7 @@ class CoursesLesson extends Component
     public $section,$lesson,$platforms,$name,$platform_id = 1,$url;
 
     protected $rules = [
-        'lesson.name' => 'required',
+        'lesson.name' => 'required|min:5|max:20',
         'lesson.platform_id' => 'required',
         'lesson.url' => ['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
     ];
@@ -33,7 +33,7 @@ class CoursesLesson extends Component
 
     public function store(){
         $rules = [
-            'name' => 'required',
+            'name' => 'required|min:5|max:20',
             'platform_id' => 'required',
             'url' => ['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
         ];

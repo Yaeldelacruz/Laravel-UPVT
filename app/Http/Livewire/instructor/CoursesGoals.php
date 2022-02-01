@@ -11,7 +11,7 @@ class CoursesGoals extends Component
     public $course,$goal,$name;
 
     protected $rules = [
-        'goal.name' => 'required'
+        'goal.name' => 'required|min:5|max:20'
     ];
 
     public function mount(Course $course){
@@ -25,7 +25,7 @@ class CoursesGoals extends Component
     }
     public function store(){
         $this->validate([
-            'name' => 'required'
+            'name' => 'required|min:5|max:20'
         ]);
         $this->course->goals()->create([
             'name' => $this->name

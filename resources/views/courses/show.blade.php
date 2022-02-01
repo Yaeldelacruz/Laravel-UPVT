@@ -1,10 +1,10 @@
 <x-app-layout>
+    {{--Seccion de informacion principal del curso, portada, alumnos matriculados, titulo, nivel y categoria--}}
     <section class="bg-gray-700 py-12 mb-12">
         <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
             <figure>
-                <img class="h-60 w-full object-cover" src="{{Storage::url($course->image->url)}}" alt="">
+                <img class="h-60 w-full object-cover" src="{{Storage::url($course->image->url)}}" alt="Imagen">
             </figure>
-
             <div class="text-white">
                 <h1 class="text-4xl ">{{$course->tile}}</h1>
                 <h2 class="text-xl mb-3">{{$course->subtitle}}</h2>
@@ -92,10 +92,8 @@
                             <button type="submit" class="btn btn-danger btn-block mt-4">Iniciar</button>
                         </form>
                     @endcan
-
                 </div>  
             </section>
-
         </div>
     </div>
 </x-app-layout>

@@ -10,7 +10,7 @@
             @if ($current->description)
                 <div class="text-gray-600">
                     {{$current->description->name}}
-                </div>
+                </div> 
             @endif
                 <!--Marcar como culminado-->
             <div class="flex justify-between mt-4">

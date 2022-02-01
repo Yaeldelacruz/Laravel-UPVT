@@ -1,6 +1,6 @@
 <x-app-layout>
-    {{--Portada--}}
-    <section class = "bg-cover" style="background-image: url({{asset('img/home/upvtlogo3.1.jpg')}})">
+    {{--Portada y Vista de Bienvenida a todo usuario--}}
+    <section class = "bg-cover" style="background-image: url({{asset('img/home/upvtlog.jpg')}})">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-36">
             <div class="w-full md:w-3/4 lg:w-1/2">
                 <h1 class="text-white font-bold text-4xl">Universidad Politecnica del Valle de Toluca</h1>
@@ -9,9 +9,9 @@
                     la plataforma de cursos en linea, la cual podras consultas, buscar contenido dependiendo tu rama para poder
                     ayudarte a resolver problemas y seguir aprendiendo.
                 </p>
-        
+                {{--Se manda a llamar el componente de livewire en este caso la barra de busqueda de cursos
+                    esta se encuentra en la carpeta de views/livewire/search.blade.php--}}
                 @livewire('search') 
-
             </div>
         </div>
     </section>
@@ -58,6 +58,8 @@
         </div>
     </section-->
 
+    {{--Se agrega una nueva seccion debajo de la portada donde se muestra un boton que redireccion a la parte del menu donde
+        estan todos los cursos disponibles y publicados--}}
     <section class="mt-24 bg-green-700 py-12">
         <h1 class="text-center text-white text-3xl ">Cursos de la Universidad</h1>
         <p class="text-center text-white">Estas son algunos cursos que estan disponibles para que sigas fortaleciendo tus conocimientos</p>
@@ -68,7 +70,9 @@
         </div>
         
     </section>
-
+    
+    {{--Se agrega una nueva seccion debajo de la portada donde solo se muestran los cursos mas recientes 
+        con valor de 12--}}
     <section class="my-24">
         <h1 class="text-center text-3xl text-gray-600">Recientes Cursos</h1>
         <p class="text-center text-gray-500 text-sm mb-6">Listado de cursos</p>
@@ -85,7 +89,6 @@
                             @endfor--}}
                         @endisset
             @endforeach
-
         </div>
     </section>
 </x-app-layout>    

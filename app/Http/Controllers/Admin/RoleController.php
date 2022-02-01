@@ -50,7 +50,7 @@ class RoleController extends Controller
     {
         /*Para validar campos es con el request validate*/
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|min:5|max:20',
             'permissions' => 'required'
         ]);
 
@@ -97,7 +97,7 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|min:5|max:20',
             'permissions' => 'required'
         ]);
 

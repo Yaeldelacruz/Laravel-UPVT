@@ -1,11 +1,6 @@
 <div class="container py-8">
-    <!-- This example requires Tailwind CSS v2.0+ -->
 
-    @if (session('info'))
-      <div class="alert bg-green-700 text-white" role="alert">
-        <strong>Hecho!</strong> {{session('info')}}
-      </div> 
-    @endif
+    
   
 <x-table-responsive>
 
@@ -28,11 +23,9 @@
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Estado
             </th>
-
             <th colspan="2" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Opciones de cursos
+              Opciones de los cursos
             </th>
-          
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
@@ -91,17 +84,15 @@
                 <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                   <a href="{{route('instructor.courses.edit', $course)}}" class="text-indigo-600 hover:text-indigo-900">Editar</a>                  
                 </td>
-                <td lass="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+               {{--<td lass="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                   <form action="{{route('instructor.courses.destroy', $course)}}" method="POST">
                     @csrf
                     @method('delete')
                     <button type="submit" class="text-red-600 hover:text-red-900 text-sm">Eliminar</a>
                   </form>
-                </td>
+                </td> --}}
               </tr>
-            @endforeach
-          
-
+            @endforeach         
           <!-- More people... -->
         </tbody>
       </table>
